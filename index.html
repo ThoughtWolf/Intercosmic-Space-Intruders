@@ -1,0 +1,233 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            font-family: 'Press Start 2P', system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <div style="position: relative;" id="parentDiv">
+        <div
+            id="musicButton"
+            style="
+                position: absolute;
+                z-index: 30;
+                display: block;
+                align-items: right;
+                justify-content: right;
+                background-size: contain;
+                margin-left: 95%;
+                margin-top: 20px;
+                cursor: pointer;
+                user-select: none;
+                ">
+                <img 
+                    src="./img/UI/Music-0.png"
+                    alt="Pause Button">
+        </div>
+        
+        <!-- Score Container -->
+            <p
+                id="scoreContainer"
+                style="
+                    position: absolute;
+                    z-index: 10;
+                    color: white;
+                    left: 15px;
+                    top: 20px;
+                    margin: 0;
+                    font-family: 'Press Start 2P', system-ui;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-size: 12px;
+                    display: none;">
+                <span style="user-select: none;">Score:</span> 
+                <span id="scoreEl" style="user-select: none">0</span>
+            </p>
+        <canvas></canvas>
+
+        <!-- Background Start page-->
+        <div
+            id="startScreen"
+            style="
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: url('./img/Background/Space\ Background\ \(2\).png');
+                z-index: 20;
+                background-size: contain;
+                background-repeat: no-repeat;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                ">
+                <div
+                    style="
+                        text-align: center;
+                        user-select: none;
+                        ">
+                    <h1
+                        style="
+                        color: white;
+                        ">
+                        Intercosmic Space Intruders
+                    </h1>
+
+                    <!-- button -->
+                    <div
+                        id="startButton"
+                        style="
+                            cursor: pointer;
+                            position: relative;
+                            display: inline-block;
+                            margin-top: 50px;
+                            user-select: none;
+                            ">
+                        <img 
+                            src="./img/UI/Button Normal.png"
+                            alt="Start Button">
+                        <span
+                            style="
+                                position: absolute;
+                                color: white;
+                                top: 50%;
+                                transform: translate(-50%, -50%);
+                                left: 50%;
+                                ">
+                            Start
+                        </span>
+                    </div>
+                </div>
+        </div>
+
+        <!-- Restart Screen-->
+        <div 
+            id="restartScreen" 
+            style="
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    background: url('./img/Background/Space\ Background\ \(2\).png');
+                    z-index: 20;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    display: none;
+                    justify-content: center;
+                    align-items: center;
+                    user-select: none;
+                    ">
+            <div 
+                style="
+                    text-align: center;
+                    ">
+                <h1 
+                    style="
+                        color: white;
+                        margin-bottom: 100px;
+                        ">
+                    Game Over
+                </h1>
+                <h3 style="
+                        color: white;
+                        margin-top: 40px;
+                        ">
+                    <span>Score:</span>
+                    <span id="yourScoreEl">0 pts</span>
+                <h3 
+                    style="
+                        color: white;
+                        margin-top: 40px;
+                        margin-bottom: 80px;
+                        ">
+                    <span>High Score:</span>
+                    <span 
+                        id="highScoreEl"
+                        style="
+                            margin-bottom: 80px;
+                            ">
+                            0 pts
+                    </span>
+                </h1>
+        
+                
+                <h2
+                    style="
+                        color: white;
+                        ">
+                        Continue?
+                </h2>
+                <!-- buttons -->
+                <div 
+                    id="restartButton" 
+                    style="
+                        cursor: pointer;
+                        position: relative;
+                        display: inline-block;
+                        margin-top: 10px;">
+                    <img 
+                        src="./img/UI/Button Normal.png" 
+                        alt="Yes">
+                    <span 
+                        style="
+                            position: absolute;
+                            color: white;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            left: 50%;
+                            font-size: 14px;
+                            ">
+                        Yes
+                    </span>
+                </div>
+                <div 
+                    id="noButton" 
+                    style="
+                        cursor: pointer;
+                        position: relative;
+                        display: inline-block;
+                        margin-top: 10px;
+                        ">
+                    <img 
+                        src="./img/UI/Button Normal.png" 
+                        alt="No">
+                    <span 
+                        style="
+                            position: absolute;
+                            color: white;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            left: 50%;
+                            font-size: 14px;
+                            ">
+                        No
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"
+        integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="./js/utils.js"></script>
+    <script src="./js/audio.js"></script>
+    <script src="./js/classes.js"></script>
+    <script src="./index.js"></script>
+</body>
